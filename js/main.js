@@ -24,12 +24,47 @@ function createMap(){
     });
 
     // add initial basemap to map
-    var base = terrainBase.addTo(map);
+    var base = L.esri.basemapLayer('Imagery').addTo(map);
 
-    // load feature layers
-    var riverPools = L.esri.featureLayer({
-        url: 'https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/HREP_Project_Explorer/FeatureServer/4?token=Ca2cLJX0yvc9-KQZ_cjGlQY0EDWsqkGpv_5I86j0Vqs3yCz1m8unHl2bJSWr0HNaicop8zguT2XlC9watLYI8pOV33rdQDS7V2iXezlpUP7U4g7GZdPIPSiAd4LPgwpMBC2E6lMM93XmHF3_sVJVeDd3H7fVY0qC7Vv2iuv0pBOXIJdAqfQfiw68m1NhjYxabBVdksqS39hpKuqhe7ZVbtghK_coZ1NFOny6gerhPapyRi5YCW2zFXvxCpuIO-EyjDQVNrs515d2Ak8_m1i0Aw..'
+    // load feature layers, using panes to order layers
+    // boundaries pane
+    map.createPane('boundaries');
+    var congress = L.esri.featureLayer({
+        url: 'https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/HREP_Project_Explorer/FeatureServer/6?token=oTFolVieMX4U7kAEzkT_gTiDZ99SZv7DYkV-wsHis5y3cZ0APoLYYswyAxhgsn2iEK4LIPn_pHD2TF1hcvfY0v5adzP3xomFrRpEEgDqfsRcOBr-EHy0_QcAgmUc37Eo6AgE1SQmnuuJR0wD5U6_F6XnDL9lyTN02nmrFn5elXu_n2FQrv0UneRlx2AlFIRHLFX4ZKbP2iREgMQsgWmLzCm9TGL_Sc-7WPqN-Tsaryfto-s1xSv_XtvrJXQnG-V5D4m3bf9fc3cWcYH9h1SjKw..',
+        pane: 'boundaries'
     }).addTo(map);
+    var district = L.esri.featureLayer({
+        url: 'https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/HREP_Project_Explorer/FeatureServer/5?token=oTFolVieMX4U7kAEzkT_gTiDZ99SZv7DYkV-wsHis5y3cZ0APoLYYswyAxhgsn2iEK4LIPn_pHD2TF1hcvfY0v5adzP3xomFrRpEEgDqfsRcOBr-EHy0_QcAgmUc37Eo6AgE1SQmnuuJR0wD5U6_F6XnDL9lyTN02nmrFn5elXu_n2FQrv0UneRlx2AlFIRHLFX4ZKbP2iREgMQsgWmLzCm9TGL_Sc-7WPqN-Tsaryfto-s1xSv_XtvrJXQnG-V5D4m3bf9fc3cWcYH9h1SjKw..',
+        simplifyFactor: 0.5,
+        pane: 'boundaries'
+    }).addTo(map);
+
+    // other features pane
+    map.createPane('features');
+    var riverPools = L.esri.featureLayer({
+        url: 'https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/HREP_Project_Explorer/FeatureServer/4?token=Ca2cLJX0yvc9-KQZ_cjGlQY0EDWsqkGpv_5I86j0Vqs3yCz1m8unHl2bJSWr0HNaicop8zguT2XlC9watLYI8pOV33rdQDS7V2iXezlpUP7U4g7GZdPIPSiAd4LPgwpMBC2E6lMM93XmHF3_sVJVeDd3H7fVY0qC7Vv2iuv0pBOXIJdAqfQfiw68m1NhjYxabBVdksqS39hpKuqhe7ZVbtghK_coZ1NFOny6gerhPapyRi5YCW2zFXvxCpuIO-EyjDQVNrs515d2Ak8_m1i0Aw..',
+        pane: 'features'
+    }).addTo(map);
+    var rivers = L.esri.featureLayer({
+        url: 'https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/HREP_Project_Explorer/FeatureServer/2?token=oTFolVieMX4U7kAEzkT_gTiDZ99SZv7DYkV-wsHis5y3cZ0APoLYYswyAxhgsn2iEK4LIPn_pHD2TF1hcvfY0v5adzP3xomFrRpEEgDqfsRcOBr-EHy0_QcAgmUc37Eo6AgE1SQmnuuJR0wD5U6_F6XnDL9lyTN02nmrFn5elXu_n2FQrv0UneRlx2AlFIRHLFX4ZKbP2iREgMQsgWmLzCm9TGL_Sc-7WPqN-Tsaryfto-s1xSv_XtvrJXQnG-V5D4m3bf9fc3cWcYH9h1SjKw..',
+        pane: 'features'
+    }).addTo(map);
+    var waterArea = L.esri.featureLayer({
+        url: 'https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/HREP_Project_Explorer/FeatureServer/3?token=oTFolVieMX4U7kAEzkT_gTiDZ99SZv7DYkV-wsHis5y3cZ0APoLYYswyAxhgsn2iEK4LIPn_pHD2TF1hcvfY0v5adzP3xomFrRpEEgDqfsRcOBr-EHy0_QcAgmUc37Eo6AgE1SQmnuuJR0wD5U6_F6XnDL9lyTN02nmrFn5elXu_n2FQrv0UneRlx2AlFIRHLFX4ZKbP2iREgMQsgWmLzCm9TGL_Sc-7WPqN-Tsaryfto-s1xSv_XtvrJXQnG-V5D4m3bf9fc3cWcYH9h1SjKw..',
+        pane: 'features'
+    }).addTo(map);
+
+    // HREP projects pane
+    map.createPane('projects');
+    var hrepPoly = L.esri.featureLayer({
+        url: 'https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/HREP_Project_Explorer/FeatureServer/1?token=oTFolVieMX4U7kAEzkT_gTiDZ99SZv7DYkV-wsHis5y3cZ0APoLYYswyAxhgsn2iEK4LIPn_pHD2TF1hcvfY0v5adzP3xomFrRpEEgDqfsRcOBr-EHy0_QcAgmUc37Eo6AgE1SQmnuuJR0wD5U6_F6XnDL9lyTN02nmrFn5elXu_n2FQrv0UneRlx2AlFIRHLFX4ZKbP2iREgMQsgWmLzCm9TGL_Sc-7WPqN-Tsaryfto-s1xSv_XtvrJXQnG-V5D4m3bf9fc3cWcYH9h1SjKw..',
+        pane: 'projects'
+    }).addTo(map);
+    var hrepPt = L.esri.featureLayer({
+        url: 'https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/HREP_Project_Explorer/FeatureServer/0?token=oTFolVieMX4U7kAEzkT_gTiDZ99SZv7DYkV-wsHis5y3cZ0APoLYYswyAxhgsn2iEK4LIPn_pHD2TF1hcvfY0v5adzP3xomFrRpEEgDqfsRcOBr-EHy0_QcAgmUc37Eo6AgE1SQmnuuJR0wD5U6_F6XnDL9lyTN02nmrFn5elXu_n2FQrv0UneRlx2AlFIRHLFX4ZKbP2iREgMQsgWmLzCm9TGL_Sc-7WPqN-Tsaryfto-s1xSv_XtvrJXQnG-V5D4m3bf9fc3cWcYH9h1SjKw..',
+        pane: 'projects'
+    }).addTo(map);
+    
 
 // function to update basemap
 function setBasemap(basemap) {
