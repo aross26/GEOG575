@@ -2,12 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>UMRR HREP Project Explorer</title>
                 
         <!--put your external stylesheet links here-->
         <link rel="stylesheet" href= "lib/leaflet.css">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/calcite-bootstrap.min.css">
 
         <!-- Load Leaflet from CDN -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -27,7 +28,7 @@
         <script src="https://unpkg.com/esri-leaflet-cluster@2.0.1/dist/esri-leaflet-cluster.js" integrity="sha512-2/Nwrks+A2omjKeWrF4TKFLIrUbAhSl8EDEm6xunuwXXYqMoJI71PZtlW0/vqt9d3DOyP1md/bzAnNH2KuAhaQ=="
             crossorigin=""></script>
 
-        <!-- load jquery -->
+        <!-- load jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
         <!--[if IE<9]>
@@ -41,35 +42,68 @@
         <!-- Load Esri Leaflet Renderers plugin to use feature service symbology -->
         <script src="https://unpkg.com/esri-leaflet-renderers@2.0.6"></script>
 
-         <div id="pool" class="leaflet-bar">
-            <label>
-                River Pool:
-                <select id="pools">
-                    <!-- make sure to encase string values in single quotes for valid sql -->
-                    <option value="1=1">Any</option>
-                    <option value="POOL='Alton Reach'">Alton Reach</option>
-                    <option value="POOL='Pool 24'">Pool 24</option>
-                    <option value="POOL='Pool 25'">Pool 25</option>
-                    <option value="POOL='Pool 26'">Pool 26</option>
-                    <option value="POOL='Open Water Reach'">Open Water Reach</option>
-                    <option value="POOL='Kaskaskia River'">Kaskaskia River</option>
-                </select>
-            </label>
+        <!-- add title -->
+        <nav class="navbar navbar-inverse navbar-fixed-top ">
+            <a class="navbar-brand" href="#">Upper Missisippi River Restoration | Habitat Rehabilitation and Enhancement Project Explorer</a>
+        </nav>
+
+        <!-- add map container -->
+        <div class="container no-gutters" id="map-container">
+            <div class="row">
+
+                <!-- div for sidebar -->
+                <div class="col-sm-2">
+
+                    <!-- legend -->
+
+
+
+
+                    <!-- divider line -->
+                    <hr>
+
+                    <!-- basemap dropdown -->
+                    <div id="basemaps-wrapper">
+                        <select id="basemaps">
+                            <option value="Imagery">Imagery</option>
+                            <option value="Outdoor">Outdoor</option>
+                            <option value="Terrain">Terrain</option>
+                            <option value="Topographic">Topographic</option>
+                        </select>
+                    </div>
+
+                    <!-- river pool dropdown -->
+                    <div id="pool">
+                        <select id="pools">
+                            <!-- make sure to encase string values in single quotes for valid sql -->
+                            <option value="1=1">Any</option>
+                            <option value="POOL='Alton Reach'">Alton Reach</option>
+                            <option value="POOL='Pool 24'">Pool 24</option>
+                            <option value="POOL='Pool 25'">Pool 25</option>
+                            <option value="POOL='Pool 26'">Pool 26</option>
+                            <option value="POOL='Open Water Reach'">Open Water Reach</option>
+                            <option value="POOL='Kaskaskia River'">Kaskaskia River</option>
+                        </select>
+                    </div>
+
+                    <!-- construction status dropdown -->
+                    <div id="status">
+                        <select id="constStatus">
+                            <option value="1=1">Status</option>
+                            <option value="PHASE='Fact Sheet'">Fact Sheet</option>
+                            <option value="PHASE='Feasibility'">Feasibility</option>
+                            <option value="PHASE='Construction'">Construction</option>
+                            <option value="PHASE='Post Construction'">Post Construction</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- div for map -->
+                <div class="col-sm-10">
+                    <div id="map"></div>
+                </div>
+            </div>
         </div>
-        
-        <div id="map"></div> 
-        <div id="basemaps-wrapper" class="leaflet-bar">
-            <label>
-                Basemap:
-            <select id="basemaps">
-                <option value="Imagery">Imagery</option>
-                <option value="Outdoor">Outdoor</option>
-                <option value="Terrain">Terrain</option>
-                <option value="Topographic">Topographic</option>
-            </select>
-            </label>
-        </div>
-        
         
         <!--you can also use this space for internal scripts or stylesheets;
         place these within <script> or <style> tags-->

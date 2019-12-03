@@ -1,6 +1,6 @@
 //create map
 function createMap(){
-    var map = L.map('map').setView([38.85, -90.34], 8);
+    var map = L.map('map').setView([38.70, -90.34], 8);
 
     //add tile layers
     var mapboxOutdoors = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
