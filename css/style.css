@@ -11,6 +11,7 @@ body { margin:0; padding:0;}
 
 #map { 
     position: relative;
+    padding-top:65px;
     height: 900px;
     width: 100%; 
     padding-left: 0;
@@ -49,7 +50,7 @@ body { margin:0; padding:0;}
 #basemaps-wrapper {
     position: absolute;
     top: 450px;
-    width: 55%;
+    width: 215px;
     z-index: 400;
     background: white;
     padding: 10px;
@@ -64,7 +65,7 @@ body { margin:0; padding:0;}
   #pool {
     position: absolute;
     top: 495px;
-    width: 55%;
+    width: 215px;
     z-index: 1000;
     background: white;
     padding: 10px;
@@ -78,7 +79,7 @@ body { margin:0; padding:0;}
 
   #status {
     position: absolute;
-    width: 55%;
+    width: 215px;
     top: 540px;
     z-index: 1000;
     background: white;
@@ -87,6 +88,21 @@ body { margin:0; padding:0;}
   }
 
   #constStatus select {
+    margin-bottom: 1px;
+    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  #congress {
+    position: absolute;
+    width: 215px;
+    top: 585px;
+    z-index: 1000;
+    background: white;
+    padding: 10px;
+    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  #congressDist select {
     margin-bottom: 1px;
     font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
   }

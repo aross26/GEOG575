@@ -65,8 +65,9 @@
                     <!-- basemap dropdown -->
                     <div id="basemaps-wrapper">
                         <select id="basemaps">
+                            <option value="1=1">Change Basemap</option>
                             <option value="Imagery">Imagery</option>
-                            <option value="Outdoor">Outdoor</option>
+                            <option value="Streets">Streets</option>
                             <option value="Terrain">Terrain</option>
                             <option value="Topographic">Topographic</option>
                         </select>
@@ -76,9 +77,8 @@
                     <div id="pool">
                         <select id="pools">
                             <!-- make sure to encase string values in single quotes for valid sql -->
-                            <option value="1=1">Any</option>
+                            <option value="1=1">River Pool</option>
                             <option value="POOL='Alton Reach'">Alton Reach</option>
-                            <option value="POOL='Pool 24'">Pool 24</option>
                             <option value="POOL='Pool 25'">Pool 25</option>
                             <option value="POOL='Pool 26'">Pool 26</option>
                             <option value="POOL='Open Water Reach'">Open Water Reach</option>
@@ -89,11 +89,28 @@
                     <!-- construction status dropdown -->
                     <div id="status">
                         <select id="constStatus">
-                            <option value="1=1">Status</option>
+                            <option value="1=1">Filter by Status</option>
                             <option value="PHASE='Fact Sheet'">Fact Sheet</option>
                             <option value="PHASE='Feasibility'">Feasibility</option>
                             <option value="PHASE='Construction'">Construction</option>
                             <option value="PHASE='Post Construction'">Post Construction</option>
+                        </select>
+                    </div>                    
+                    
+                    <!-- congressional district dropdown -->
+                    <div id="congress">
+                        <select id="congressDist">
+                            <option value="1=1">Congressional District</option>
+                            <option value="DISTRICTID='1712'">IL 12th</option>
+                            <option value="DISTRICTID='1713'">IL 13th</option>
+                            <option value="DISTRICTID='1715'">IL 15th</option>
+                            <option value="DISTRICTID='1718'">IL 18th</option>
+                            <option value="DISTRICTID='2901'">MO 1st</option>
+                            <option value="DISTRICTID='2902'">MO 2nd</option>
+                            <option value="DISTRICTID='2903'">MO 3rd</option>
+                            <option value="DISTRICTID='2904'">MO 4th</option>
+                            <option value="DISTRICTID='2906'">MO 6th</option>
+                            <option value="DISTRICTID='2908'">MO 8th</option>
                         </select>
                     </div>
                 </div>
