@@ -1,0 +1,94 @@
+body { margin:0; padding:0;}
+
+/* #map { width: 70%; } */
+
+#map-container{
+    padding-top:65px;
+    padding-left: 10;
+    padding-right: 0;
+    width: 100%;
+}
+
+#map { 
+    position: relative;
+    padding-top:65px;
+    height: 900px;
+    width: 100%; 
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.col-sm-2 {
+    top: 7px;
+    left: 7px;
+    border-style: solid;
+    border-width: 0px;
+    height: 893px;
+    background-color: #f8f8f8;
+}
+
+.col-sm-10 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+#legend {
+  padding-top: 30px;
+}
+
+#basemaps-wrapper {
+    position: relative;
+    width: 215px;
+    z-index: 400;
+    padding: 10px;
+    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  #basemaps {
+    margin-bottom: 1px;
+    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  #pool {
+    position: relative;
+    width: 215px;
+    z-index: 1000;
+    /*background: #BCDAED;*/
+    padding: 10px;
+    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  #pool select {
+    margin-bottom: 1px;
+    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  #status {
+    position: relative;
+    width: 215px;
+    z-index: 1000;
+    padding: 10px;
+    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  #constStatus select {
+    margin-bottom: 1px;
+    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  #congress {
+    position: relative;
+    width: 215px;
+    z-index: 1000;
+    padding: 10px;
+    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  #congressDist select {
+    margin-bottom: 1px;
+    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
