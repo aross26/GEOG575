@@ -60,7 +60,7 @@ function createMap(){
 
     //pop ups for HREP points
   hrepPt.bindPopup(function (layer) {
-    return L.Util.template('<p>HREP <strong>{PROJECT_NAME}</strong></p> <p>Status: {STATUS}.</p><p>For more information visit <a href="https://www.mvr.usace.army.mil/Missions/Environmental-Protection-and-Restoration/Upper-Mississippi-River-Restoration/Habitat-Restoration/St-Louis-District/">USACE - St. Louis District HREP page<\/a> .</p>', layer.feature.properties);
+    return L.Util.template('<p>Project Name: <strong>{PROJECT_NAME}</strong></p> <p>Status: {STATUS}.</p><p>For more information visit <a href="https://www.mvr.usace.army.mil/Missions/Environmental-Protection-and-Restoration/Upper-Mississippi-River-Restoration/Habitat-Restoration/St-Louis-District/">USACE - St. Louis District HREP page<\/a> .</p>', layer.feature.properties);
   });    
 
 // function to update basemap
