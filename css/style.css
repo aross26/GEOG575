@@ -1,19 +1,23 @@
-body { margin:0; padding:0;}
+body {
+    margin: 0;
+    padding: 0;
+}
+
 
 /* #map { width: 70%; } */
 
-#map-container{
-    padding-top:65px;
+#map-container {
+    padding-top: 65px;
     padding-left: 10;
     padding-right: 0;
     width: 100%;
 }
 
-#map { 
+#map {
     position: relative;
-    padding-top:65px;
+    padding-top: 65px;
     height: 900px;
-    width: 100%; 
+    width: 100%;
     padding-left: 0;
     padding-right: 0;
     margin-right: 0;
@@ -21,12 +25,11 @@ body { margin:0; padding:0;}
 }
 
 .col-sm-2 {
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: 0;
-    margin-left: 0;
-    height: 900px;
-    background-color: #828282;
+    top: 7px;
+    left: 7px;
+    border-style: solid;
+    border-width: 1px;
+    height: 893px;
 }
 
 .col-sm-10 {
@@ -36,73 +39,59 @@ body { margin:0; padding:0;}
     margin-left: 0;
 }
 
-.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-
-   .col,
-   [class*="col-"] {
-    padding-right: 0;
-    padding-left: 0;
-  }
+#legend {
+    padding-top: 30px;
 }
 
 #basemaps-wrapper {
-    position: absolute;
-    top: 450px;
+    position: relative;
     width: 215px;
     z-index: 400;
-    background: white;
     padding: 10px;
-    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  }
+    font-family: "Avenir Next W01", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-  #basemaps {
+#basemaps {
     margin-bottom: 1px;
-    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  }
+    font-family: "Avenir Next W01", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-  #pool {
-    position: absolute;
-    top: 495px;
+#pool {
+    position: relative;
     width: 215px;
     z-index: 1000;
-    background: white;
+    /*background: #BCDAED;*/
     padding: 10px;
-    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  }
+    font-family: "Avenir Next W01", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-  #pool select {
+#pool select {
     margin-bottom: 1px;
-    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  }
+    font-family: "Avenir Next W01", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-  #status {
-    position: absolute;
+#status {
+    position: relative;
     width: 215px;
-    top: 540px;
     z-index: 1000;
-    background: white;
     padding: 10px;
-    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  }
+    font-family: "Avenir Next W01", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-  #constStatus select {
+#constStatus select {
     margin-bottom: 1px;
-    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  }
+    font-family: "Avenir Next W01", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-  #congress {
-    position: absolute;
+#congress {
+    position: relative;
     width: 215px;
-    top: 585px;
     z-index: 1000;
-    background: white;
     padding: 10px;
-    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  }
+    font-family: "Avenir Next W01", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-  #congressDist select {
+#congressDist select {
     margin-bottom: 1px;
-    font-family: "Avenir Next W01","Avenir Next", Avenir,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  }
+    font-family: "Avenir Next W01", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
