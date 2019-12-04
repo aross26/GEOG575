@@ -24,7 +24,7 @@ function createMap(){
     }).addTo(map);
     var district = L.esri.featureLayer({
         url: 'https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/HREP_Project_Explorer/FeatureServer/5?token=oTFolVieMX4U7kAEzkT_gTiDZ99SZv7DYkV-wsHis5y3cZ0APoLYYswyAxhgsn2iEK4LIPn_pHD2TF1hcvfY0v5adzP3xomFrRpEEgDqfsRcOBr-EHy0_QcAgmUc37Eo6AgE1SQmnuuJR0wD5U6_F6XnDL9lyTN02nmrFn5elXu_n2FQrv0UneRlx2AlFIRHLFX4ZKbP2iREgMQsgWmLzCm9TGL_Sc-7WPqN-Tsaryfto-s1xSv_XtvrJXQnG-V5D4m3bf9fc3cWcYH9h1SjKw..',
-        simplifyFactor: 0.5,
+        simplifyFactor: 0.8,
         pane: 'boundaries'
     }).addTo(map);
 
@@ -50,7 +50,7 @@ function createMap(){
         pane: 'projectArea'
     }).addTo(map);
     
-    // HREP project area
+    // HREP project points
     map.createPane('projectPts');
     var hrepPt = L.esri.featureLayer({
         url: 'https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/HREP_Project_Explorer/FeatureServer/0?token=oTFolVieMX4U7kAEzkT_gTiDZ99SZv7DYkV-wsHis5y3cZ0APoLYYswyAxhgsn2iEK4LIPn_pHD2TF1hcvfY0v5adzP3xomFrRpEEgDqfsRcOBr-EHy0_QcAgmUc37Eo6AgE1SQmnuuJR0wD5U6_F6XnDL9lyTN02nmrFn5elXu_n2FQrv0UneRlx2AlFIRHLFX4ZKbP2iREgMQsgWmLzCm9TGL_Sc-7WPqN-Tsaryfto-s1xSv_XtvrJXQnG-V5D4m3bf9fc3cWcYH9h1SjKw..',
@@ -60,7 +60,7 @@ function createMap(){
 
     //pop ups for HREP points
   hrepPt.bindPopup(function (layer) {
-    return L.Util.template('<p>Project Name: <strong>{PROJECT_NAME}</strong></p> <p>Status: {STATUS}.</p><p>For more information visit <a href="https://www.mvr.usace.army.mil/Missions/Environmental-Protection-and-Restoration/Upper-Mississippi-River-Restoration/Habitat-Restoration/St-Louis-District/">USACE - St. Louis District HREP page<\/a> .</p>', layer.feature.properties);
+    return L.Util.template('<p>Project Name: <strong>{PROJECT_NAME}</strong></p> <p>Status: {STATUS}.</p><p>For more information visit: <a href="https://www.mvr.usace.army.mil/Missions/Environmental-Protection-and-Restoration/Upper-Mississippi-River-Restoration/Habitat-Restoration/St-Louis-District/">USACE - St. Louis District HREP page<\/a></p>', layer.feature.properties);
   });    
 
 // function to update basemap
@@ -114,6 +114,7 @@ poolSelector.addEventListener('change', function() {
 var statusFilter = document.getElementById('constStatus');
 statusFilter.addEventListener('change', function() {
     hrepPt.setWhere(statusFilter.value);
+    hrepPoly.setWhere(statusFilter.value);
     });
     
 //zoom to selected pool
