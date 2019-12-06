@@ -7,7 +7,7 @@
   z-index: 2000; }
   .sidebar.collapsed {
     top: 75px;
-    width: 40px; }
+    width: 43px; }
   @media (min-width: 768px) {
     .sidebar {
       bottom: 10px;
