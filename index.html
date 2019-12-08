@@ -9,6 +9,7 @@
         <link rel="stylesheet" href= "lib/leaflet.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/calcite-bootstrap.min.css">
+        <link rel="stylesheet" href="/css/leaflet-sidebar.css">
 
         <!-- Load Leaflet from CDN -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -47,20 +48,29 @@
             <a class="navbar-brand" href="#">Upper Missisippi River Restoration | HREP Explorer</a>
         </nav>
 
-        <!-- add map container -->
-        <section class="container-fluid" id="map-container">
-            <div class="row">
+        <!-- div for sidebar -->
+        <div id="sidebar" class="sidebar collapsed">
+            <!-- nav tab -->
+            <div class="sidebar-tabs">
+                <ul role="tablist">
+                    <li>
+                        <a href="#home" role="tab">
+                            <img src="img/icons/ui/drag-horizontal.svg" style="width:20px;">
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
-                <!-- div for sidebar -->
-                <div class="col-lg-2 col-sm-3 col-xs-8">
-
+            <!-- sidebar pane -->
+            <div class="sidebar-content">
+                <div class="sidebar-pane" id="home">
                     <!-- description -->
                     <div id="description">
                         <p></p>
-                        <h4 class="text-center">Habitat Rehabilitation and Enhancement Projects</h4>
-                        <p class="text-center">Restoring and maintaining a healthier and more resilient Upper Mississippi River Ecosystem.</p>
-                        <p class="text-center">HREPs involve the restoration and enhancement of habitat for fish and wildlife by making improvements to the lands
-                            and water of project sites. </p>
+                        <h4 class="text-left">Habitat Rehabilitation and Enhancement Projects</h4>
+                        <p class="text-left">Restoring and maintaining a healthier and more resilient Upper Mississippi River Ecosystem.</p>
+                        <p class="text-left">HREPs involve the restoration and enhancement of habitat for fish and wildlife by making improvements to the lands and
+                            water of project sites. </p>
                     </div>
 
                     <!-- divider line -->
@@ -69,21 +79,26 @@
                     <!-- legend -->
                     <div id="legend">
                         <h5 class="text-left">Projects / Status</h5>
-                        <svg height= "170" width="100%">
-                            <rect x="3" width="15" height="15" style="fill: #8aaa53"/>
-                            <text x="25" y="15" style="padding-top: 5px; font-family: sans-serif, font-size: 12px;">Project Area</text>
+                        <svg height="180" width="100%">
                             
-                            <circle cx="10" cy="45" r="8" style="fill: #b2b2b2"/>
-                            <text x="25" y="50" style="font-family: sans-serif, font-size: 12px;">Fact Sheet</text>
+                            <line x1="0" y1="15" x2="25" y2="-15" style="stroke:#f5bf5b; stroke-width:3" />
+                            <text x="25" y="13" style="padding-top: 5px; font-family: sans-serif, font-size: 12px;">District Boundary</text>
+                            
+                            <rect x="3" y="29" width="15" height="15" style="fill: #8aaa53"/>
+                            <text x="25" y="42" style="padding-top: 5px; font-family: sans-serif, font-size: 12px;">Project Area</text>
+                       
+                            <circle cx="10" cy="70" r="8" style="fill: #b2b2b2"/>
+                            <text x="25" y="75" style="font-family: sans-serif, font-size: 12px;">Fact Sheet</text>
                            
-                            <circle cx="10" cy="80" r="8" style="fill: #ffce1c"/>
-                            <text x="25" y="85" style="font-family: sans-serif, font-size: 12px;">Feasibility</text>
+                            <circle cx="10" cy="103" r="8" style="fill: #ffce1c"/>
+                            <text x="25" y="108" style="font-family: sans-serif, font-size: 12px;">Feasibility</text>
                            
-                            <circle cx="10" cy="115" r="8" style="fill: #b2df8a"/>
-                            <text x="25" y="120" style="font-family: sans-serif, font-size: 12px;">Construction</text>
+                            <circle cx="10" cy="138" r="8" style="fill: #b2df8a"/>
+                            <text x="25" y="142" style="font-family: sans-serif, font-size: 12px;">Construction</text>
                            
-                            <circle cx="10" cy="150" r="8" style="fill: #a44444"/>
-                            <text x="25" y="155" style="font-family: sans-serif, font-size: 12px;">Post Construction</text>
+                            <circle cx="10" cy="170" r="8" style="fill: #a44444"/>
+                            <text x="25" y="176" style="font-family: sans-serif, font-size: 12px;">Post Construction</text>
+                                
                         </svg>
                     </div>
 
@@ -92,13 +107,13 @@
                     <!-- construction status dropdown -->
                     <div id="status">
                         <h6 class="text-left">Filter Projects</h5>
-                        <select id="constStatus">
-                            <option value="1=1">Construction Status</option>
-                            <option value="PHASE='Fact Sheet'">Fact Sheet</option>
-                            <option value="PHASE='Feasibility'">Feasibility</option>
-                            <option value="PHASE='Construction'">Construction</option>
-                            <option value="PHASE='Post Construction'">Post Construction</option>
-                        </select>
+                            <select id="constStatus">
+                                <option value="1=1">Construction Status</option>
+                                <option value="PHASE='Fact Sheet'">Fact Sheet</option>
+                                <option value="PHASE='Feasibility'">Feasibility</option>
+                                <option value="PHASE='Construction'">Construction</option>
+                                <option value="PHASE='Post Construction'">Post Construction</option>
+                            </select>
                     </div>
 
                     <hr class="divider">
@@ -106,15 +121,15 @@
                     <!-- river pool dropdown -->
                     <div id="pool">
                         <h6 class="text-left">Go To</h5>
-                        <select id="pools">
-                            <!-- make sure to encase string values in single quotes for valid sql -->
-                            <option value="1=1">River Pool</option>
-                            <option value="POOL='Alton Reach'">Alton Reach</option>
-                            <option value="POOL='Pool 25'">Pool 25</option>
-                            <option value="POOL='Pool 26'">Pool 26</option>
-                            <option value="POOL='Open Water Reach'">Open Water Reach</option>
-                            <option value="POOL='Kaskaskia River'">Kaskaskia River</option>
-                        </select>
+                            <select id="pools">
+                                <!-- make sure to encase string values in single quotes for valid sql -->
+                                <option value="1=1">River Pool</option>
+                                <option value="POOL='Alton Reach'">Alton Reach</option>
+                                <option value="POOL='Pool 25'">Pool 25</option>
+                                <option value="POOL='Pool 26'">Pool 26</option>
+                                <option value="POOL='Open Water Reach'">Open Water Reach</option>
+                                <option value="POOL='Kaskaskia River'">Kaskaskia River</option>
+                            </select>
                     </div>
 
                     <!-- congressional district dropdown -->
@@ -138,29 +153,31 @@
 
                     <!-- basemap dropdown -->
                     <div id="basemaps-wrapper">
-                        <h6 class="text-left">Set basemap</h5>
-                        <select id="basemaps">
-                            <option value="Imagery">Imagery</option>
-                            <option value="Streets">Streets</option>
-                            <option value="Terrain">Terrain</option>
-                            <option value="Topographic">Topographic</option>
-                        </select>
-                    </div>  
-                    
-                </div>
-                
-                <!-- div for map -->
-                <div class="col-lg-10 col-sm-8 col-xs-4">
-                    <div id="map"></div>
+                        <h6 class="text-left">Change basemap</h5>
+                            <select id="basemaps">
+                                <option value="Imagery">Imagery</option>
+                                <option value="Streets">Streets</option>
+                                <option value="Terrain">Terrain</option>
+                                <option value="Topographic">Topographic</option>
+                            </select>
+                    </div>
+
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+            
+        
+        <!-- div for map -->
+        <div id="map"></div>
         
         <!--you can also use this space for internal scripts or stylesheets;
         place these within <script> or <style> tags-->
 
         <!--put your external script links here-->
         <script type="text/javascript" src="lib/jquery-3.4.1.min.js"></script>
+        <script src="js/leaflet-sidebar.js"></script>
         <script src ="js/main.js"></script>
+        
     </body>
 </html>

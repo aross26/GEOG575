@@ -3,23 +3,11 @@ body {
   padding:0;
 }
 
-#map-container{
-    padding-top:65px;
-    padding-left: 10;
-    padding-right: 0;
-    height: 100%;
-    width: 100%;
-}
-
 #map { 
-    position: relative;
-    padding-top:65px;
-    min-height: 900px;
+    position: fixed;
+    top:65px;
+    height: 100%;
     width: 100%; 
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: 0;
-    margin-left: 0;
 }
 
 @media (min-width: 768px) {
@@ -56,6 +44,10 @@ h4 {
 h6.text-left {
     margin-top: 0px;
     margin-bottom: 10px;
+}
+
+p.text-left{
+  margin-right: 10px;
 }
 
 .col-sm-10 {
